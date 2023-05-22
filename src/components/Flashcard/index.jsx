@@ -13,6 +13,7 @@ function Flashcard({number, question, answer, checks, setChecks, answers, setAns
     const [stateQuestion, setStateQuestion] = useState(false)
     const [flip, setFlip] = useState(false)
     const [image, setImage] = useState(imgplay)
+    const [tag, setTag] = useState("play-btn")
     const [color, setColor] = useState("#333333")
     const [textdeco, setTextdeco] = useState("none")
     const [openOrClose, setOpenOrClose] = useState(close)    
@@ -55,6 +56,7 @@ function Flashcard({number, question, answer, checks, setChecks, answers, setAns
             setTextdeco("line-through")
             setTest(true)
             setAnswers([...answers, correcticon])
+            setTag("zap-btn")
 
         }
         if(check === "almost"){
@@ -67,6 +69,7 @@ function Flashcard({number, question, answer, checks, setChecks, answers, setAns
             setTextdeco("line-through")
             setTest(true)
             setAnswers([...answers, almosticon])
+            setTag("partial-btn")
 
         }
         if(check === "wrong"){
@@ -79,7 +82,7 @@ function Flashcard({number, question, answer, checks, setChecks, answers, setAns
             setTest(true)
             setChecks(checks + 1)
             setAnswers([...answers, wrongicon])
-            
+            setTag("no-btn")            
         }
     }    
 
@@ -94,7 +97,7 @@ function Flashcard({number, question, answer, checks, setChecks, answers, setAns
             <ImagePlay src={image} 
                        onClick={isAnswer ? null : OpenQuestion}  
                        test={test} 
-                       data-test="play-btn"/> 
+                       data-test = {tag}/> 
             <ImageTurn src={isAnswer ? undefined : imgflip}  
                        onClick={stateQuestion ? FlipQuestion : undefined}  
                        flipIcon= {flipIcon} 
