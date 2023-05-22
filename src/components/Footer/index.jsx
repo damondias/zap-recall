@@ -3,7 +3,7 @@ import { Container } from './style';
 
 function Footer({checks, amount}) {
     return (
-        <Container> 
+        <Container data-test="footer"> 
             <p>{checks}/{amount} CONCLUÍDOS</p>
 
         </Container>
