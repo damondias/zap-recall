@@ -31,7 +31,7 @@ const Container = styled.div `
     color: ${({color})=> color };
     background-color: ${({test})=> !test ? "#FFFFD4" : "#FFFFFF"};
 
-    ${({abrefecha}) => abrefecha} 
+    ${({openOrClose}) => openOrClose} 
 
     p {
         font-family: 'Recursive';
@@ -72,7 +72,7 @@ const ImagePlay = styled.img`
     width: 20px;
 `;
 const ImageTurn = styled.img`
-    display: ${({viraricon}) => viraricon ? "none" : "flex"};
+    display: ${({flipIcon}) => flipIcon ? "none" : "flex"};
     position: absolute;
     bottom: 10px;
     right: 10px;

@@ -83,15 +83,21 @@ function Flashcard({number, question, answer, checks, setChecks, }){
     }    
 
     return (
-        <Container color = {color} test={test} abrefecha= {openOrClose} textdeco= {textdeco}>
-            {stateQuestion ? <p>{flip ? answer : question}</p> : <p>Pergunta {number}</p>}
+        <Container color = {color} test={test} openOrClose= {openOrClose} textdeco= {textdeco} data-test="flashcard">
+            {stateQuestion ? <p data-test="flashcard-text">{flip ? answer : question}</p> : <p data-test="flashcard-text">Pergunta {number}</p>}
             <ButtonBox>
-              {flip && <Button color = "#FF3030" onClick={() => SelectAnswer("wrong")} >Não lembrei</Button>}
-              {flip && <Button color = "#FF922E" onClick={() => SelectAnswer("almost")} >Quase não lembrei</Button>}
-              {flip && <Button color = "#2FBE34" onClick={() => SelectAnswer("correct")} >Zap!</Button>}              
+              {flip && <Button color = "#FF3030" onClick={() => SelectAnswer("wrong")} data-test="no-btn" >Não lembrei</Button>}
+              {flip && <Button color = "#FF922E" onClick={() => SelectAnswer("almost")} data-test="partial-btn">Quase não lembrei</Button>}
+              {flip && <Button color = "#2FBE34" onClick={() => SelectAnswer("correct")} data-test="zap-btn">Zap!</Button>}              
             </ButtonBox>
-            <ImagePlay src={image} onClick={isAnswer ? null : OpenQuestion}  test={test} /> 
-            <ImageTurn src={isAnswer ? undefined : imgflip}  onClick={stateQuestion ? FlipQuestion : undefined}  viraricon= {flipIcon}/> 
+            <ImagePlay src={image} 
+                       onClick={isAnswer ? null : OpenQuestion}  
+                       test={test} 
+                       data-test="play-btn"/> 
+            <ImageTurn src={isAnswer ? undefined : imgflip}  
+                       onClick={stateQuestion ? FlipQuestion : undefined}  
+                       flipIcon= {flipIcon} 
+                       data-test="turn-btn"/> 
         </Container>
     )
 }
