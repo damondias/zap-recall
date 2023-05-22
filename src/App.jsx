@@ -1,8 +1,13 @@
 import "./styles/reset.css"
 import "./styles/styles.css"
 
-import React from 'react'
-import { ContainerBody } from "./style"
+import React,{ useState } from 'react'
+import { Body } from "./style"
+import Logo from "./components/Logo"
+import Flashcard from "./components/Flashcard"
+import Footer from "./components/Footer"
+
+import logo from "./assets/logo.png"
 
 function App() {
 
@@ -17,12 +22,14 @@ function App() {
     {question: "Usamos estado (state) para __", answer: "Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente" }
   ]
 
-  console.log(cards);
+  const [checks, setChecks] = useState(0);
 
   return (
-    <ContainerBody>
-       {cards.map((card,i)=> <h2> pergunta {i+1}: {card.question}</h2>) }
-    </ContainerBody>
+    <Body>
+        <Logo img = {logo} title = "Zap Recall"/>
+        {cards.map((card,i)=> <Flashcard number={i+1} question={card.question} answer={card.answer}/> )}
+        <Footer checks={checks} amount={cards.length}/>
+    </Body>
   )
 }
 

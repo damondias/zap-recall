@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-const ContainerBody = styled.div `
+const Body = styled.div `
   
   background-color: #FB6B6B;
   width: 100vw;
@@ -15,5 +15,5 @@ const ContainerBody = styled.div `
 `
 
 export {
-    ContainerBody,
+    Body,
 }
