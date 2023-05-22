@@ -24,10 +24,18 @@ function App() {
 
   const [checks, setChecks] = useState(0);
 
+
   return (
     <Body>
         <Logo img = {logo} title = "Zap Recall"/>
-        {cards.map((card,i)=> <Flashcard number={i+1} question={card.question} answer={card.answer}/> )}
+        {cards.map((card,i)=> <Flashcard key={i} 
+                                         number={i+1} 
+                                         question={card.question} 
+                                         answer={card.answer}
+                                         checks = {checks}
+                                         setChecks = {setChecks}
+
+                                         /> )}
         <Footer checks={checks} amount={cards.length}/>
     </Body>
   )
