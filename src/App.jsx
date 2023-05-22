@@ -1,34 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./styles/reset.css"
+import "./styles/styles.css"
+
+import React from 'react'
+import { ContainerBody } from "./style"
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const cards = [
+    {question: "O que é JSX?", answer: "Uma extensão da linguagem JavaScript" },
+    {question: "O React é __", answer: "Uma biblioteca JavaScript para construção de interfaces" },
+    {question: "Componentes devem iniciar com __", answer: "Letra maiúscula" },
+    {question: "Podemos colocar __ dentro do JSX", answer: "expressões" },
+    {question: "O ReactDOM nos ajuda __", answer: "Interagindo com a DOM para colocar componentes React na mesma" },
+    {question: "Usamos o npm para __", answer: "Gerenciar os pacotes necessários e suas dependências" },
+    {question: "Usamos props para __", answer: "Passar diferentes informações para componentes" },
+    {question: "Usamos estado (state) para __", answer: "Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente" }
+  ]
+
+  console.log(cards);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <ContainerBody>
+       {cards.map((card,i)=> <h2> pergunta {i+1}: {card.question}</h2>) }
+    </ContainerBody>
   )
 }
 
