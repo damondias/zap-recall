@@ -8,6 +8,7 @@ import Flashcard from "./components/Flashcard"
 import Footer from "./components/Footer"
 
 import logo from "./assets/logo.png"
+import Home from "./components/Home"
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <Body>
+        <Home />
         <Logo img = {logo} title = "Zap Recall"/>
         {cards.map((card,i)=> <Flashcard key={i} 
                                          number={i+1} 
