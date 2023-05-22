@@ -16,8 +16,20 @@ const Container = styled.div `
   color: #333333;
   padding: 10px;
   box-shadow: -4px 0px 5px 0px rgba(0, 0, 0, 0.15);
+`;
+
+const Icons = styled.div`
+    display: flex;
+    justify-content: center;
+    img {
+        width:23px;
+        height:23px;
+        margin-top: 6px;
+        margin-right: 5px;
+    }
 `
 
 export {
     Container,
+    Icons
 }

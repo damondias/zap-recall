@@ -24,11 +24,11 @@ function App() {
   ]
 
   const [checks, setChecks] = useState(0);
-
+  const [answers, setAnswers] = React.useState([])
 
   return (
     <Body>
-        <Home />
+        <Home title= "Zap Recall"/>
         <Logo img = {logo} title = "Zap Recall"/>
         {cards.map((card,i)=> <Flashcard key={i} 
                                          number={i+1} 
@@ -36,9 +36,10 @@ function App() {
                                          answer={card.answer}
                                          checks = {checks}
                                          setChecks = {setChecks}
-
+                                         answers ={answers}
+                                         setAnswers = {setAnswers}
                                          /> )}
-        <Footer checks={checks} amount={cards.length}/>
+        <Footer checks={checks} amount={cards.length} answers = {answers}/>
     </Body>
   )
 }

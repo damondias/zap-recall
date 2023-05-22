@@ -8,7 +8,7 @@ import correcticon from "../../assets/icone_certo.png"
 import wrongicon from "../../assets/icone_erro.png"
 import almosticon from "../../assets/icone_quase.png"
 
-function Flashcard({number, question, answer, checks, setChecks, }){
+function Flashcard({number, question, answer, checks, setChecks, answers, setAnswers, }){
 
     const [stateQuestion, setStateQuestion] = useState(false)
     const [flip, setFlip] = useState(false)
@@ -54,7 +54,7 @@ function Flashcard({number, question, answer, checks, setChecks, }){
             setColor("#2FBE34")
             setTextdeco("line-through")
             setTest(true)
-            
+            setAnswers([...answers, correcticon])
 
         }
         if(check === "almost"){
@@ -66,7 +66,7 @@ function Flashcard({number, question, answer, checks, setChecks, }){
             setColor("#FF922E")
             setTextdeco("line-through")
             setTest(true)
-            
+            setAnswers([...answers, almosticon])
 
         }
         if(check === "wrong"){
@@ -78,6 +78,7 @@ function Flashcard({number, question, answer, checks, setChecks, }){
             setTextdeco("line-through")
             setTest(true)
             setChecks(checks + 1)
+            setAnswers([...answers, wrongicon])
             
         }
     }    
